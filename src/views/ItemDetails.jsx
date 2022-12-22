@@ -45,3 +45,4 @@ const ItemDetails = ({ route, navigation }) => {
     )
     
 }
+export default ItemDetails;

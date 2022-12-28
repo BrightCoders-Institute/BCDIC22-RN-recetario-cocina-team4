@@ -11,8 +11,16 @@ const Navigator = () => {
             headerShown: false
         }}
     >
-        <Stack.Screen name='Main' component={ Main} />
-        <Stack.Screen  name='ItemDetails' component={ ItemDetails }/>
+        <Stack.Screen 
+        name='Main' 
+        component={ Main } 
+        />
+        
+        <Stack.Screen  
+        name='ItemDetails' 
+        component={ ItemDetails }
+        />
+
     </Stack.Navigator>
   )
 }

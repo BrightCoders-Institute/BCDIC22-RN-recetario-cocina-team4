@@ -1,22 +1,27 @@
 import React from 'react'
 import { StatusBar } from "expo-status-bar"
-import { View, Text, FlatList, Image, TouchableHighlight, SectionList, SafeAreaView, StyleSheet } from 'react-native'
+import { View, Text, FlatList, Image, TouchableHighlight, SectionList, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native'
 import dbinfo from '../data/dbinfo.json'
 
-const ListItem = ({ item }) => {
+const ListItem = ({ item, navigation }) => {
     return (
-        <View style={styles.item}>
-            <Image 
-                source={{uri: item.imageURL}}
-            style={styles.itemPic}
-            resizeMode="cover"
-            />
-            <Text style={styles.itemText}>{item.name}</Text>
-        </View>
+        <TouchableOpacity onPress = { () => 
+            navigation.navigate('ItemDetails', item)
+        }>
+            <View style={styles.item}>
+                <Image 
+                    source={{uri: item.imageURL}}
+                style={styles.itemPic}
+                resizeMode="cover"
+                />
+                <Text style={styles.itemText}>{item.name}</Text>
+            </View>
+        </TouchableOpacity> 
+        
     )
 }
 
-export default () => {
+export default ( { navigation }) => {
     return (
         <View style={styles.container}>
             <StatusBar style="light"/>
@@ -32,14 +37,13 @@ export default () => {
                             data={section.data}
                             horizontal
                             renderItem={({ item }) => {
-                                return <ListItem item={item} />
+                                return <ListItem item={item} navigation={navigation} />
                             }}
                          />
                         </> 
                     )}
-                    renderItem={({ item, section }) => {
+                    renderItem={() => {
                         return null
-                        return <ListItem item={item} />
                     }}
                 />
             </SafeAreaView>

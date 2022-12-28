@@ -1,46 +1,27 @@
+import { SharedElement } from 'react-navigation-shared-element'
+import { View, Text, Button, Image } from 'react-native'
+import ListItem from '../components/ListItem.jsx'
+import Constants from 'expo-constants'
+import React from 'react'
+
 const ItemDetails = ({ route, navigation }) => {
-    const { post } = route.params
-    const safeInsets = useSafeAreaInsets()
-    const opacity = useRef(new Animated.Value(0)).current
-    
-
-    useEffect(() => {
-        Animated.timing(opacity, {
-            toValue:1,
-            duration: 250, 
-            delay: 500,
-            useNativeDriver: true,
-        }).start()
-    },[])
-
+    const { title, size, ingredients, name, imageURL } = route.params
+    console.log(name, imageURL)
     return (
-        <View>
-            <Animated.View
-            style={{
-                opacity,
-                positon: 'absolute',
-                top: safeInsets.top,
-                left: safeInsets.left,
-                right: safeInsets.right,
-                zIndex: 1, 
-                flexDirection: 'row',
-                justifyContent: 'space-between'
-            }}
-            >
-                <Icon name='x' onPress={() => navigation.goBack()} />
-                <Icon name='like'/>
-            </Animated.View>
-
-            <SharedElement id={post.key}>
-                <Image source={post.imageURL}/>
-            </SharedElement>
-
-            <View >
-                <Text >{post.name}</Text>
-                <Text >{post.size}</Text>
-                <Text >{post.ingredients}</Text>
-
+        <View style={{ marginTop: Constants.statusBarHeight}}>
+            
+            <View>
+                <Text style={{textAlign:"center"}}>Recipe Screen</Text>
+                <Image source={{ uri: imageURL}} style={{width:300, height:300, alignSelf:"center"}}/>
+                <Text style={{textAlign:"center"}}>{title}</Text>
+                <Text style={{textAlign:"center"}}>{name}</Text>
+                <Text style={{textAlign:"center", fontSize:20}}>Ingredients</Text>
+                <Text style={{textAlign:"center"}}>for {size}</Text>
+                <Text style={{textAlign:"center"}}>{ingredients[0].name}</Text>
+                <Text style={{textAlign:"center"}}>{ingredients[0].quantity}</Text>
             </View>
+
+            <Button title='Close' onPress={ () => { navigation.pop() }} />
         </View>
     )
     

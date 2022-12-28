@@ -8,7 +8,7 @@
           "size": "3 persons",
           "ingredients": [
             {
-                "quantity": "1",
+                "quantity": "1 piece",
                 "name": " beef roast",
                 "type": "Meat"
             },
@@ -146,7 +146,7 @@
       "title": "RECENT",
       "data": [
         {
-            "key": "1",
+            "key": "5",
             "name": "Cranberry and Apple Acorn",
             "size": " 3 persons",
             "ingredients": [
@@ -184,7 +184,7 @@
                 "imageURL": "http://elanaspantry.com/wp-content/uploads/2008/10/acorn_squash_with_cranberry.jpg"
           },
           {
-            "key": "2",
+            "key": "6",
             "name": "Mic's Yorkshire Puds",
             "size": "3 persons",
             "ingredients": [
@@ -212,7 +212,7 @@
                 "imageURL": "http://upload.wikimedia.org/wikipedia/commons/f/f9/Yorkshire_Pudding.jpg"
           },
           {
-            "key": "3",
+            "key": "7",
             "name": "Old-Fashioned Oatmeal Cookies",
             "size": " 3 persons",
             "ingredients": [
@@ -280,7 +280,7 @@
               "imageURL": "http://s3.amazonaws.com/gmi-digital-library/65caecf7-a8f7-4a09-8513-2659cf92871e.jpg"
           },
           {
-            "key": "4",
+            "key": "8",
             "name": "Blueberry Oatmeal Squares",
             "size": "2 persons",
             "ingredients": [
@@ -338,7 +338,7 @@
               "imageURL": "https://foodal.com/wp-content/uploads/2022/06/Blueberry-Oatmeal-Squares.jpg"
           },
           {
-            "key": "5",
+            "key": "9",
             "name": "Curried chicken salad",
             "size": "3 persons",
             "ingredients": [

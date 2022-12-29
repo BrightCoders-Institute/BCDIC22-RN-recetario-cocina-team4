@@ -1,15 +1,17 @@
 [
     {
       "title": "TRENDING",
+      "bigger": false,
       "data": [
         {
+          "title": "TRENDING",
           "key": "1",
           "name": "Crock Pot Roast",
           "size": "3 persons",
           "ingredients": [
             {
                 "quantity": "1 piece",
-                "name": " beef roast",
+                "name": "beef roast",
                 "type": "Meat"
             },
             {
@@ -36,8 +38,9 @@
             "imageURL": "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg"
         },
         {
+            "title": "TRENDING",
             "key": "2",
-            "name": "Roasted Asparagus",
+            "name": "Roast Asparagus",
             "size": "2 persons",
             "ingredients": [
                 {
@@ -60,8 +63,9 @@
           },
   
           {
+            "title": "TRENDING",
             "key": "3",
-            "name": "Curried Lentils and Rice",
+            "name": "Curried Lentils",
             "size": "3 persons",
             "ingredients": [
                 {
@@ -93,9 +97,10 @@
               "imageURL": "https://theplantbasedschool.com/wp-content/uploads/2022/09/Lentil-curry-4-2.jpg"
           },
           {
+            "title": "TRENDING",
             "key": "4",
             "name": "Big Night Pizza",
-            "size": " 3 persons",
+            "size": "3 persons",
             "ingredients": [
                 {
                     "quantity": "5 teaspoons",
@@ -144,11 +149,13 @@
     },
     {
       "title": "RECENT",
+      "bigger": true,
       "data": [
         {
             "key": "5",
+            "title": "RECENT",
             "name": "Cranberry and Apple Acorn",
-            "size": " 3 persons",
+            "size": "3 persons",
             "ingredients": [
                 {
                     "quantity": "2",
@@ -185,6 +192,7 @@
           },
           {
             "key": "6",
+            "title": "RECENT",
             "name": "Mic's Yorkshire Puds",
             "size": "3 persons",
             "ingredients": [
@@ -213,6 +221,7 @@
           },
           {
             "key": "7",
+            "title": "RECENT",
             "name": "Old-Fashioned Oatmeal Cookies",
             "size": " 3 persons",
             "ingredients": [
@@ -281,6 +290,7 @@
           },
           {
             "key": "8",
+            "title": "RECENT",
             "name": "Blueberry Oatmeal Squares",
             "size": "2 persons",
             "ingredients": [
@@ -339,12 +349,13 @@
           },
           {
             "key": "9",
+            "title": "RECENT",
             "name": "Curried chicken salad",
             "size": "3 persons",
             "ingredients": [
                 {
                     "quantity": "3",
-                    "name": "skinless, boneless chicken breasts, halved lengthwise",
+                    "name": "boneless chicken breasts",
                     "type": "Meat"
                 },
                 {

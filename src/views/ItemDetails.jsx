@@ -2,9 +2,10 @@ import { SharedElement } from 'react-navigation-shared-element'
 import { View, Text, Button, Image, StyleSheet, Animated, SafeAreaView } from 'react-native'
 import ListItem from '../components/ListItem.jsx'
 import Constants from 'expo-constants'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { FontAwesome }  from "@expo/vector-icons"
 import { Feather } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { DataTable } from 'react-native-paper';
 
@@ -12,24 +13,13 @@ const SPACING = 15
 
 const ItemDetails = ({ route, navigation }) => {
     const safeInsets = useSafeAreaInsets()
-    const { title, size, ingredients, name, imageURL } = route.params
-    
+    const [favs, setFavs] = useState(false)
+    const { title, size, ingredients, name, imageURL, favorite} = route.params
+    console.log(name, favs)
+
     return (
         <View style={styles.container}>
-            <Animated.View
-            style={{
-                position: 'absolute',
-                top: safeInsets.top + SPACING,
-                left: safeInsets.left + SPACING,
-                right: safeInsets.right + SPACING,
-                zIndex: 1,
-                flexDirection: 'row',
-                justifyContent: 'flex-end'
-            }}>
-                
-                <Feather name='share' style={{color:"#FFFFFF", fontSize: 30, }}/>
-                <Feather name='heart' style={{color:"#FFFFFF", fontSize: 30, marginLeft:20, marginRight: 10}}/>
-            </Animated.View>
+
             <Animated.View
             style={{
                 position: 'absolute',
@@ -42,6 +32,15 @@ const ItemDetails = ({ route, navigation }) => {
             }}>
                 
                 <FontAwesome name='close' style={{color:"#FFFFFF", fontSize: 30,}} onPress={() => navigation.goBack()} />
+                <Feather name='share' style={{color:"#FFFFFF", fontSize: 30, marginLeft:260, marginRight: 15}}/>
+                <MaterialIcons 
+                name={favs ? 'favorite' : 'favorite-border'} 
+                style={{color:"#FFFFFF", fontSize: 30, marginRight: 2}}
+                onPress={() => {
+                    setFavs(!favs)
+                    // favorite = favs
+                    }}
+                />
             </Animated.View>
             <Image source={{ uri: imageURL}} style={styles.postImage}/>
             
@@ -83,23 +82,6 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         backgroundColor: '#2C2C2C',
-    },
-    sectionHeader: {
-        fontWeight: "bold",
-        fontSize: 30,
-        color: "#FF12E6",
-        marginTop: 20,
-        marginBottom: 5
-    },
-    item: {
-        margin: 10
-    },
-    itemPic: {
-        width: 200,
-        height: 200
-    },
-    itemText: {
-        color: "#F4F4F4"
     },
     postDetails: {
         position: "relative",

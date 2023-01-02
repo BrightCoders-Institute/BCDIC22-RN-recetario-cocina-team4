@@ -1,6 +1,8 @@
 import React from 'react'
 import { TextInput, View, StyleSheet } from "react-native"
 import { FontAwesome }  from "@expo/vector-icons"
+import Constants from 'expo-constants'
+
 
 const SearchBar = () => {
     return (
@@ -8,7 +10,7 @@ const SearchBar = () => {
             <FontAwesome style={styles.icon} name="search"/>
             <TextInput style={styles.textIns}
             placeholder="What do you want to eat? "
-            placeholderTextColor= '#000000'
+            placeholderTextColor= '#fff'
             />
             <FontAwesome style={styles.icon2} name="microphone"/>
         </View>
@@ -18,7 +20,7 @@ const SearchBar = () => {
 const styles = StyleSheet.create({
     bg:{
         marginTop: 15,
-        backgroundColor: "#9E9E9E",
+        backgroundColor: "#4e4a4a",
         height: 50,
         borderRadius: 10,
         marginHorizontal: 15,
@@ -29,6 +31,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         alignSelf: "center",
         marginHorizontal: 10,
+        color: 'white'
     },
     textIns: {
         flex: 1,
@@ -40,6 +43,7 @@ const styles = StyleSheet.create({
         fontSize: 25,
         alignSelf: "center",
         marginHorizontal: 10,
+        color: 'white'
     }
 })
 

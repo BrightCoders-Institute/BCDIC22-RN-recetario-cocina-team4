@@ -1,13 +1,10 @@
 import { SharedElement } from 'react-navigation-shared-element'
-import { View, Text, Button, Image, StyleSheet, Animated, SafeAreaView } from 'react-native'
-import ListItem from '../components/ListItem.jsx'
-import Constants from 'expo-constants'
+import { View, Text, Button, Image, StyleSheet, Animated, SafeAreaView, ScrollView, FlatList } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { FontAwesome }  from "@expo/vector-icons"
 import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { DataTable } from 'react-native-paper';
 
 const SPACING = 15
 
@@ -16,6 +13,33 @@ const ItemDetails = ({ route, navigation }) => {
     const [favs, setFavs] = useState(false)
     const { title, size, ingredients, name, imageURL, favorite} = route.params
     console.log(name, favs)
+
+
+    const renderIngredients = (info) => {
+        return(
+            <View style={{
+                flexDirection:'row',
+                width: '100%',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                height: 45
+
+            }}>
+                <Text style={{ color: 'white', fontSize: 15}}>{ info.name}</Text>
+                <Text style={{ color: 'white', fontSize: 15}}>{ info.quantity}</Text>
+            </View>
+        )
+    }
+
+    const itemSeparator = () => {
+        return(
+            <View style={{
+                borderBottomWidth: 1,
+                opacity: 0.4,
+                borderBottomColor: '#4e4a4a'
+            }} />
+        )
+    }
 
     return (
         <View style={styles.container}>
@@ -61,15 +85,15 @@ const ItemDetails = ({ route, navigation }) => {
                 <Text style={styles.postSize}>Ingredients</Text>
                 <Text style={styles.postSize}>for {size}</Text>
                 <Text></Text>
+
+                <FlatList
+                    data={ ingredients }
+                    renderItem={({ item }) => renderIngredients( item )}
+                    ItemSeparatorComponent={ itemSeparator}
+                    showsVerticalScrollIndicator={ true}
+                    key= { item => item.key}
+                />
                 
-                <DataTable>
-                {ingredients.map((ingredient) => (
-					<DataTable.Row key={ingredient.name}>
-                        <DataTable.Cell textStyle= {{color:'#FFFFFF'}}>{ingredient.name} </DataTable.Cell>
-                        <DataTable.Cell style={{justifyContent: 'flex-end'}} textStyle= {{color:'#FFFFFF'}} >{ingredient.quantity} </DataTable.Cell>
-                    </DataTable.Row>
-				))}
-                </DataTable>
                 
             </View>
         </View>
@@ -86,7 +110,8 @@ const styles = StyleSheet.create({
     postDetails: {
         position: "relative",
         bottom: 45,
-        paddingHorizontal: SPACING
+        paddingHorizontal: SPACING,
+        flex: 1
     },
     postImage: {
         height: 350,

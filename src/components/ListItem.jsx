@@ -43,7 +43,6 @@ const ListItem = ({ item, navigation, section }) => {
 export default ( { navigation }) => {
     return (
         <View style={styles.container}>
-            <StatusBar style="dark"/>
             <SafeAreaView style={{ flex: 1 }}>
                 <SectionList 
                     contentContainerStyle={{ paddingHorizontal: 10 }}

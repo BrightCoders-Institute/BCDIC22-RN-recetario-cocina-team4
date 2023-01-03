@@ -1,4 +1,3 @@
-import { SharedElement } from 'react-navigation-shared-element'
 import { View, Text, Button, Image, StyleSheet, Animated, SafeAreaView, ScrollView, FlatList } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { FontAwesome }  from "@expo/vector-icons"
